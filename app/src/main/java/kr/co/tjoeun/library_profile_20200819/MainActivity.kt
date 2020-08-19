@@ -29,18 +29,15 @@ class MainActivity : BaseActivity() {
             * => 사용 가능할때의 코드 + 불가능할때의 코드
             * 실제로 권한 요청
             */
-
-
-
             val pl = object : PermissionListener {
                 override fun onPermissionGranted() {
-//                    권한이 승인된 상태일때 실행할 코드
 
+//                    권한이 승인된 상태일때 실행할 코드
                     val myUri = Uri.parse("tel:0103469-9369")
                     val myIntent = Intent(Intent.ACTION_CALL, myUri)
-                    startActivity(myIntent)
+
+                    //startActivity(myIntent)
                 }
-            }
 
 
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
@@ -49,11 +46,11 @@ class MainActivity : BaseActivity() {
                 }
             }
 //                완성된 행동 방침 을 가지고 권한 실제 요청
-        TedPermission.with(mContext)
-            .setPermissionListener(pl)
-            .setDeniedMessage("권한이 불가능합니다.")
-            .setPermissions(Manifest.permission.CALL_PHONE)
-            .check()
+            TedPermission.with(mContext)
+                .setPermissionListener(pl)
+                .setDeniedMessage("권한이 불가능합니다.")
+                .setPermissions(Manifest.permission.CALL_PHONE)
+                .check()
 
 
 //            전화를 바로 연결처리 (ACTION_CALL)
