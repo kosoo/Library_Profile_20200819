@@ -33,10 +33,9 @@ class MainActivity : BaseActivity() {
                 override fun onPermissionGranted() {
 
 //                    권한이 승인된 상태일때 실행할 코드
-                    val myUri = Uri.parse("tel:0103469-9369")
+                    val myUri = Uri.parse("tel:010-3469-9369")
                     val myIntent = Intent(Intent.ACTION_CALL, myUri)
-
-                    //startActivity(myIntent)
+                    startActivity(myIntent)
                 }
 
 
